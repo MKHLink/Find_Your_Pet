@@ -9,27 +9,80 @@
     <title>FindYourPet</title>
 </head>
 
-<body class="max-w-4xl mx-auto">
+
+    <body class="h-screen bg-neutral-800" >
 
     <!--NavBar-->
     <header class="navBarHeader">
+
+        <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+            <div class="flex items-center flex-shrink-0 text-white mr-6">
+             
+              <span class="font-semibold text-xl tracking-tight">Find Your Pet</span>
+            </div>
+            <div class="block lg:hidden">
+              <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+                <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+              </button>
+            </div>
+            <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+              <div class="text-sm lg:flex-grow">
+                <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                  Who We Are 
+                </a>
+                <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                 Why Adopt 
+                </a>
+                <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+                  Contact Us
+                </a>
+              </div>
+              <div>
+                <a href="#" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Start Searching</a>
+              </div>
+            </div>
+          </nav>
         <!--Picture navBarPic can float inline to the left of NavBar choices-->
         <img src="#" class=navBarPic alt="" />
         <nav class="navBar">
-            <ul class="navBarUl">
-                <!--HOMEPAGE is slide1 with the form-->
-                <li><a href="#">HOMEPAGE</a></li>
-                <!--ABOUTUS is where we can put our USERSTORY-->
-                <li><a href="#">ABOUT US</a></li>
-                <!--BLANK for now just can continue to add another navbar element if needed-->
-                <li><a href="#">PENDING NAVBAR ELEMENT</a></li>
-            </ul>
         </nav>
     </header>
 
-    <!--Title-->
-    <h1 class="text-2xl font-bold mt-8 mb-5">
-        FIND YOUR PET</h1>
+        <section class="relative bg-white">
+            <img
+              class="absolute inset-0 object-[75%] sm:object-[25%] object-cover w-full h-full opacity-25 sm:opacity-100"
+              src="https://images.unsplash.com/photo-1601758003122-53c40e686a19"
+              alt="Couple on a bed with a dog"
+            />
+          
+            <div class="hidden sm:block sm:inset-0 sm:absolute sm:bg-gradient-to-r sm:from-white sm:to-transparent"></div>
+          
+            <div class="relative px-4 py-32 mx-auto max-w-screen-xl lg:h-screen lg:items-center lg:flex">
+              <div class="max-w-xl text-center sm:text-left">
+                <h1 class="text-3xl font-extrabold sm:text-5xl">
+                  Let's Find your
+                  <strong class="font-extrabold text-rose-700 sm:block">
+                    Forever Friend
+                  </strong>
+                </h1>
+          
+                <p class="max-w-lg mt-4 sm:leading-relaxed sm:text-xl">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo tenetur fuga ducimus numquam ea!
+                </p>
+          
+                <div class="flex flex-wrap mt-8 text-center gap-4">
+                  <a class="block w-full px-12 py-3 text-sm font-medium text-white rounded shadow bg-rose-600 sm:w-auto active:bg-rose-500 hover:bg-rose-700 focus:outline-none focus:ring" href="/get-started">
+                    Get Started
+                  </a>
+          
+                  <a class="block w-full px-12 py-3 text-sm font-medium bg-white rounded shadow text-rose-600 sm:w-auto hover:text-rose-700 active:text-rose-500 focus:outline-none focus:ring" href="/about">
+                    Learn More
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+          
 
     <!--Slide One: Homepage and Form-->
     <section class="slideOneContainer">
@@ -38,41 +91,48 @@
             <img src="#" alt="" />  
         </div>
         <div class="formSection" id="formSection">
-            <h2 class="text-x1 font-bold mt-8 mb-5">
-                Your future pet is waiting for you! Enter your information here:</h2>
+
             <p class="my-5">
                 *INSERT INSTRUCTIONS HERE BASED ON WHAT ACTUAL CHOICES WE USE*</p>
-            <form class="submitForm" id="submitForm">
-                <div class="InfoPerson">
-                    <label for="zip">Enter your Zipcode:</label>
-                    <input type="text" placeholder="zipcode" name="zip" />
-                    <label for="city">Enter your City:</label>
-                    <input type="text" placeholder="city" name="city" />
-                </div>
 
-                <div class="InfoGoing">
-                    <label for="zip2">Enter Zipcode Where You're Going:</label>
-                    <input type="text" placeholder="zipcode" name="zip2"/>
-                    <label for="city2">Enter City Where You're Going:</label>
-                    <input type="text" placeholder="city" name="city2"/>
-                </div>
+
+                <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
+                    <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">Your future pet is waiting for you! Enter your information here:
+                    </h2>
                 
-                <div class="radioAnimal">What pet are you looking for?
-                    <input type="radio" name="dog" id="dogChoice" />
-                    <label for="dog">Dog</label>
+                    <form>
+                        <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
+                            <div>
+                                <label class="text-gray-700 dark:text-gray-200" for="zipcode">Zipcode</label>
+                                <input id="username" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                            </div>
+                
+                            <div>
+                                <label class="text-gray-700 dark:text-gray-200" for="city">City</label>
+                                <input id="emailAddress" type="email" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                            </div>
+                
+                            <div>
+                                <label class="text-gray-700 dark:text-gray-200" for="animal">Type of Animal</label>
+                                <input id="password" type="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                            </div>
+                
+                            <div>
+                                <label class="text-gray-700 dark:text-gray-200" for="breed">Breed</label>
+                                <input id="passwordConfirmation" type="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                            </div>
+                        </div>
+                
+                        <div class="flex justify-end mt-6">
 
-                    <input type="radio" name="cat" id="catChoice" />
-                    <label for="cat">Cat</label>
+                            <button class="text-white font-bold bg-purple-700 hover:bg-purple-800 py-2 px-4 rounded">
+                                Submit</button>
+                        </div>
+                    </form>
+                </section>
 
-                    <input type="radio" name="hamster" id="hamsterChoice" />
-                    <label for="hamster">Hamster</label>
+            
 
-                    <input type="radio" name="next" id="nextChoice" />
-                    <label for="next">Insert Next Animal If Next, Delete otherwise</label>
-                </div>
-
-                <button class="text-white font-bold bg-purple-700 hover:bg-purple-800 py-2 px-4 rounded">
-                    Submit</button>
             </form>
         </div>
     </section>
