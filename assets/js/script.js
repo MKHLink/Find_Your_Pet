@@ -1,6 +1,6 @@
 //api key: gSzfuztB3Wmmxgv5n0Q6rR4ty7EtEc14eez9SiOYgZHameqeHU
 //secret: W6jfFnFl2Jxqo2bUSnC6s90C1PzCF4Fv6K8SyHGp
-var zipCodeEl = document.querySelector("#username");
+/*var zipCodeEl = document.querySelector("#username");
 var submissionFormEl = document.querySelector("#search-form");
 
 //selector of the animal display container
@@ -80,7 +80,7 @@ function displayAnimal(animals)
             animalAttrEl.appendChild(img);
         }*/
 
-        //Displays Names
+        /*//Displays Names
         var name = animals.animals[i].name;
         var titleName = document.createElement("h5");
         titleName.classList="text-gray-900 text-xl font-medium mb-2";
@@ -113,4 +113,22 @@ function displayAnimal(animals)
         animalFormEl.appendChild(animalContainerEl);
     }
     
-}
+}*/
+
+    distanceCalculator("10462","11355");
+
+    function distanceCalculator(userCode,dataCode)
+    {
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '350fbdca79msh63c7c48f0c42238p142045jsn08f19c2253ed',
+                'X-RapidAPI-Host': 'redline-redline-zipcode.p.rapidapi.com'
+            }
+        };
+        
+        fetch("https://redline-redline-zipcode.p.rapidapi.com/rest/distance.json/"+userCode+"/"+dataCode+"/mile", options)
+            .then(response => response.json())
+            .then(response => console.log(response))
+            .catch(err => console.error(err));
+    }
