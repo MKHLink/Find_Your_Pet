@@ -99,28 +99,28 @@
                     <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">Your future pet is waiting for you! Enter your information here:
                     </h2>
                 
-                    <form>
+                    <form id="search-form">
                         <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                             <div>
                                 <label class="text-gray-700 dark:text-gray-200" for="zipcode">Zipcode</label>
-                                <input id="username" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                                <input id="username" type="input" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
                             </div>
 
                 
                             <div>
                                 <label class="text-gray-700 dark:text-gray-200" for="animal">Type of Animal</label>
-                                <input id="password" type="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                                <input id="password" type="input" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
                             </div>
                 
                             <div>
                                 <label class="text-gray-700 dark:text-gray-200" for="breed">Breed</label>
-                                <input id="passwordConfirmation" type="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                                <input id="passwordConfirmation" type="input" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
                             </div>
                         </div>
                 
                         <div class="flex justify-end mt-6">
 
-                            <button class="text-white font-bold bg-purple-700 hover:bg-purple-800 py-2 px-4 rounded">
+                            <button type="submit" class="text-white font-bold bg-purple-700 hover:bg-purple-800 py-2 px-4 rounded">
                                 Submit</button>
                         </div>
                     </form>
@@ -131,6 +131,17 @@
             </form>
         </div>
     </section>
+
+    <div id="animal-form" class="flex justify-center">
+        <div id="animal-container" class="rounded-lg shadow-lg bg-white max-w-sm">
+          <a href="#!">
+            <img  id="animal-img" class="rounded-t-lg" src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" alt=""/>
+          </a>
+          <div id="animal-attr" class="p-6">
+            
+          </div>
+        </div>
+    </div>
     
     <footer class="text-center lg:text-left bg-gray-100 text-gray-600">
         <div class="flex justify-center items-center lg:justify-between p-6 border-b border-gray-300">
