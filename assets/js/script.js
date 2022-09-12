@@ -1,12 +1,11 @@
 //api key: gSzfuztB3Wmmxgv5n0Q6rR4ty7EtEc14eez9SiOYgZHameqeHU
 //secret: W6jfFnFl2Jxqo2bUSnC6s90C1PzCF4Fv6K8SyHGp
 
-var apiKey = "gSzfuztB3Wmmxgv5n0Q6rR4ty7EtEc14eez9SiOYgZHameqeHU";
-var secretKey = "W6jfFnFl2Jxqo2bUSnC6s90C1PzCF4Fv6K8SyHGp";
 
 console.log("Test");
 
-function getToken()
+//function to get the first 20 animals in the given location
+function getToken(location)
 {
     var accessToken;
 
@@ -25,7 +24,7 @@ function getToken()
         accessToken =  data.access_token;
         console.log(accessToken);
 
-        fetch('https://api.petfinder.com/v2/animals?type=dog', {
+        fetch('https://api.petfinder.com/v2/animals?location='+location, {
             headers: {
             'Authorization': 'Bearer '+data.access_token
             }
@@ -41,13 +40,7 @@ function getToken()
     
 }
 
-getToken();
+getToken("10462");
 
 //curl -d "grant_type=client_credentials&client_id=gSzfuztB3Wmmxgv5n0Q6rR4ty7EtEc14eez9SiOYgZHameqeHU&client_secret=W6jfFnFl2Jxqo2bUSnC6s90C1PzCF4Fv6K8SyHGp" https://api.petfinder.com/v2/oauth2/token
 
-/*
-.then(function(response){
-    response.json().then(function(data){
-        console.log(data);
-    });
-*/
