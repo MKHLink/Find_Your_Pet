@@ -3,9 +3,9 @@
 var zipCodeEl = document.querySelector("#username");
 var submissionFormEl = document.querySelector("#search-form");
 
-var animalContainerEl = document.querySelector("#animal-container");
+//selector of the animal display container
 var animalFormEl = document.querySelector("#animal-form");
-var animalAttrEl = document.querySelector("#animal-attr");
+
 
 
 submissionFormEl.addEventListener("submit",submitHandler);
@@ -56,36 +56,61 @@ function getToken(location)
     
 }
 
-//text-gray-900 text-xl font-medium mb-2
-
+//Function that displays the data retrueved
 function displayAnimal(animals)
 {
-    var name = animals.animals[0].name;
-    var titleName = document.createElement("h5");
-    titleName.classList="text-gray-900 text-xl font-medium mb-2";
-    titleName.textContent = "Name: "+name;
 
-    var type = animals.animals[0].species;
-    var typeName = document.createElement("h6");
-    typeName.classList="text-gray-900 text-xl font-medium mb-2";
-    typeName.textContent = "Species: "+type;
+    for(var i =0;i<10;i++)
+    {
+        //Creation of individual cards
+        animalContainerEl = document.createElement("div");
+        animalContainerEl.classList="col-12 col-md-4 rounded-lg shadow-lg bg-white max-w-sm";
 
-    var breed = animals.animals[0].breeds.primary;
-    var breedType = document.createElement("h6");
-    breedType.classList="text-gray-900 text-xl font-medium mb-2";
-    breedType.textContent = "Breed: "+breed;
+        var animalAttrEl = document.createElement("div");
+        animalAttrEl.classList="p-6";
 
-    var city = animals.animals[0].contact.address.city;
-    var location = document.createElement("h6");
-    location.classList="text-gray-900 text-xl font-medium mb-2";
-    location.textContent = "City: "+city;
+        //work in progress, may need to come up with easier image solution
 
+        /*if(animals.animals[i].photos[0].small)
+        {
+            var imgUrl = animals.animals[i].photos[0].small;
+            var img = document.createElement("img");
+            img.classList = "rounded-t-lg";
+            img.setAttribute("src",imgUrl);
+            animalAttrEl.appendChild(img);
+        }*/
 
-    animalAttrEl.appendChild(titleName);
-    animalAttrEl.appendChild(typeName);
-    animalAttrEl.appendChild(breedType);
-    animalAttrEl.appendChild(location);
-    animalContainerEl.appendChild(animalAttrEl);
-    animalFormEl.appendChild(animalContainerEl);
-
+        //Displays Names
+        var name = animals.animals[i].name;
+        var titleName = document.createElement("h5");
+        titleName.classList="text-gray-900 text-xl font-medium mb-2";
+        titleName.textContent = "Name: "+name;
+    
+        //Displays Species
+        var type = animals.animals[i].species;
+        var typeName = document.createElement("h6");
+        typeName.classList="text-gray-900 text-xl font-medium mb-2";
+        typeName.textContent = "Species: "+type;
+    
+        //Displays Breeds
+        var breed = animals.animals[i].breeds.primary;
+        var breedType = document.createElement("h6");
+        breedType.classList="text-gray-900 text-xl font-medium mb-2";
+        breedType.textContent = "Breed: "+breed;
+    
+        //Displays Locationn
+        var city = animals.animals[i].contact.address.city;
+        var location = document.createElement("h6");
+        location.classList="text-gray-900 text-xl font-medium mb-2";
+        location.textContent = "City: "+city;
+    
+        //Appends everying to the HTML
+        animalAttrEl.appendChild(titleName);
+        animalAttrEl.appendChild(typeName);
+        animalAttrEl.appendChild(breedType);
+        animalAttrEl.appendChild(location);
+        animalContainerEl.appendChild(animalAttrEl);
+        animalFormEl.appendChild(animalContainerEl);
+    }
+    
 }
