@@ -49,10 +49,7 @@ function getToken(location)
                 for(var i = 0;i<9;i++)
                 {
                     listZip[i] = data.animals[i].contact.address.postcode;
-                    var zipEl = distanceCalculator(location, listZip[i]);
-                    var zip = document.getElementById("zip"+i);
-                    zip.classList="text-gray-900 text-xl font-medium mb-2";
-                    zip.textContent = "Distance: "+ zipEl;
+                    var zipEl = distanceCalculator(location, listZip[i],i);
                 }
                 console.log(listZip);
                 displayAnimal(data,location);
@@ -114,7 +111,7 @@ function displayAnimal(animals,location)
     
    
     //function to call the zip code api and get the distance between two zip codes
-    function distanceCalculator(userCode,dataCode)
+    function distanceCalculator(userCode,dataCode,i)
     {
             const options = {
                 method: 'GET',
@@ -126,15 +123,20 @@ function displayAnimal(animals,location)
             
             fetch("https://redline-redline-zipcode.p.rapidapi.com/rest/distance.json/"+userCode+"/"+dataCode+"/mile", options)
             .then(function(response){
-                response.json().then(async function(data){
-                    var zip = data.distance;
-                    console.log("zip: "+zip);
-                    return zip;
+                response.json().then( function(data){    
+                    console.log(data);
+                    displayDistance(data,i)
                 });
             });
     }
     
     
+    function displayDistance(data,i)
+    {
+        var zip = document.getElementById("zip"+i);
+        zip.classList="text-gray-900 text-xl font-medium mb-2";
+        zip.textContent = "Distance: "+ data.distance;
+    }
 
 
     
