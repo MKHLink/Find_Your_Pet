@@ -6,7 +6,7 @@ var submissionFormEl = document.querySelector("#search-form");
 //selector of the animal display container
 var animalFormEl = document.querySelector("#animal-form");
 
-
+var listZip = [];
 
 submissionFormEl.addEventListener("submit",submitHandler);
 
@@ -46,7 +46,16 @@ function getToken(location)
         }).then(function(response){
             response.json().then(function(data){
                 console.log(data);
-                displayAnimal(data, location);
+                for(var i = 0;i<9;i++)
+                {
+                    listZip[i] = data.animals[i].contact.address.postcode;
+                    var zipEl = distanceCalculator(location, listZip[i]);
+                    var zip = document.getElementById("zip"+i);
+                    zip.classList="text-gray-900 text-xl font-medium mb-2";
+                    zip.textContent = "Distance: "+ zipEl;
+                }
+                console.log(listZip);
+                displayAnimal(data,location);
             });
         });
     });
@@ -62,84 +71,71 @@ function displayAnimal(animals,location)
 
     for(var i =0;i<10;i++)
     {
-        //Creation of individual cards
-        var animalContainerEl = document.createElement("div");
-        animalContainerEl.classList="col-12 col-md-4 rounded-lg shadow-lg bg-white max-w-sm";
-
-        var animalAttrEl = document.createElement("div");
-        animalAttrEl.classList="p-6";
-
+       
         //work in progress, may need to come up with easier image solution
 
         
         if(animals.animals[i].photos.length>0)
         {
             var imgUrl = animals.animals[i].photos[0].small;
-            var img = document.createElement("img");
+            var img = document.getElementById("img"+i);
             img.classList = "rounded-t-lg";
             img.setAttribute("src",imgUrl);
-            animalAttrEl.appendChild(img);
         }
 
         //Displays Names
         var name = animals.animals[i].name;
-        var titleName = document.createElement("h5");
+        var titleName = document.getElementById("name"+i);
         titleName.classList="text-gray-900 text-xl font-medium mb-2";
         titleName.textContent = "Name: "+name;
     
         //Displays Species
         var type = animals.animals[i].species;
-        var typeName = document.createElement("h6");
+        var typeName = document.getElementById("type"+i);
         typeName.classList="text-gray-900 text-xl font-medium mb-2";
         typeName.textContent = "Species: "+type;
     
         //Displays Breeds
         var breed = animals.animals[i].breeds.primary;
-        var breedType = document.createElement("h6");
+        var breedType = document.getElementById("breed"+i);
         breedType.classList="text-gray-900 text-xl font-medium mb-2";
         breedType.textContent = "Breed: "+breed;
     
         //Displays Locationn
         var city = animals.animals[i].contact.address.city;
-        var location = document.createElement("h6");
+        var location = document.getElementById("city"+i);
         location.classList="text-gray-900 text-xl font-medium mb-2";
         location.textContent = "City: "+city;
     
-        //Appends everying to the HTML
-        animalAttrEl.appendChild(titleName);
-        animalAttrEl.appendChild(typeName);
-        animalAttrEl.appendChild(breedType);
-        animalAttrEl.appendChild(location);
-        animalContainerEl.appendChild(animalAttrEl);
-        animalFormEl.appendChild(animalContainerEl);
-        //distanceCalculator(location,animals.animals[i].contact.address.postcode);
     }
     
 }
     
     
-    
+   
     //function to call the zip code api and get the distance between two zip codes
     function distanceCalculator(userCode,dataCode)
     {
-        const options = {
-            method: 'GET',
-            headers: {
-                'X-RapidAPI-Key': '350fbdca79msh63c7c48f0c42238p142045jsn08f19c2253ed',
-                'X-RapidAPI-Host': 'redline-redline-zipcode.p.rapidapi.com'
-            }
-        };
-        
-        fetch("https://redline-redline-zipcode.p.rapidapi.com/rest/distance.json/"+userCode+"/"+dataCode+"/mile", options)
-        .then(function(response){
-            response.json().then(function(data){
-                console.log(data.distance);
-            })
-        });;
+            const options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': '350fbdca79msh63c7c48f0c42238p142045jsn08f19c2253ed',
+                    'X-RapidAPI-Host': 'redline-redline-zipcode.p.rapidapi.com'
+                }
+            };
+            
+            fetch("https://redline-redline-zipcode.p.rapidapi.com/rest/distance.json/"+userCode+"/"+dataCode+"/mile", options)
+            .then(function(response){
+                response.json().then(async function(data){
+                    var zip = data.distance;
+                    console.log("zip: "+zip);
+                    return zip;
+                });
+            });
     }
     
     
-       
+
 
     
     
