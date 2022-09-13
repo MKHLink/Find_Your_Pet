@@ -1,6 +1,6 @@
 //api key: gSzfuztB3Wmmxgv5n0Q6rR4ty7EtEc14eez9SiOYgZHameqeHU
 //secret: W6jfFnFl2Jxqo2bUSnC6s90C1PzCF4Fv6K8SyHGp
-/*var zipCodeEl = document.querySelector("#username");
+var zipCodeEl = document.querySelector("#username");
 var submissionFormEl = document.querySelector("#search-form");
 
 //selector of the animal display container
@@ -46,7 +46,7 @@ function getToken(location)
         }).then(function(response){
             response.json().then(function(data){
                 console.log(data);
-                displayAnimal(data);
+                displayAnimal(data, location);
             });
         });
     });
@@ -57,13 +57,13 @@ function getToken(location)
 }
 
 //Function that displays the data retrueved
-function displayAnimal(animals)
+function displayAnimal(animals,location)
 {
 
     for(var i =0;i<10;i++)
     {
         //Creation of individual cards
-        animalContainerEl = document.createElement("div");
+        var animalContainerEl = document.createElement("div");
         animalContainerEl.classList="col-12 col-md-4 rounded-lg shadow-lg bg-white max-w-sm";
 
         var animalAttrEl = document.createElement("div");
@@ -71,16 +71,17 @@ function displayAnimal(animals)
 
         //work in progress, may need to come up with easier image solution
 
-        /*if(animals.animals[i].photos[0].small)
+        
+        if(animals.animals[i].photos.length>0)
         {
             var imgUrl = animals.animals[i].photos[0].small;
             var img = document.createElement("img");
             img.classList = "rounded-t-lg";
             img.setAttribute("src",imgUrl);
             animalAttrEl.appendChild(img);
-        }*/
+        }
 
-        /*//Displays Names
+        //Displays Names
         var name = animals.animals[i].name;
         var titleName = document.createElement("h5");
         titleName.classList="text-gray-900 text-xl font-medium mb-2";
@@ -111,12 +112,14 @@ function displayAnimal(animals)
         animalAttrEl.appendChild(location);
         animalContainerEl.appendChild(animalAttrEl);
         animalFormEl.appendChild(animalContainerEl);
+        //distanceCalculator(location,animals.animals[i].contact.address.postcode);
     }
     
-}*/
-
-    distanceCalculator("10462","11355");
-
+}
+    
+    
+    
+    //function to call the zip code api and get the distance between two zip codes
     function distanceCalculator(userCode,dataCode)
     {
         const options = {
@@ -128,7 +131,15 @@ function displayAnimal(animals)
         };
         
         fetch("https://redline-redline-zipcode.p.rapidapi.com/rest/distance.json/"+userCode+"/"+dataCode+"/mile", options)
-            .then(response => response.json())
-            .then(response => console.log(response))
-            .catch(err => console.error(err));
+        .then(function(response){
+            response.json().then(function(data){
+                console.log(data.distance);
+            })
+        });;
     }
+    
+    
+       
+
+    
+    
