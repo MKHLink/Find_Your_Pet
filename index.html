@@ -99,28 +99,28 @@
                     <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">Your future pet is waiting for you! Enter your information here:
                     </h2>
                 
-                    <form>
+                    <form id="search-form">
                         <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                             <div>
                                 <label class="text-gray-700 dark:text-gray-200" for="zipcode">Zipcode</label>
-                                <input id="username" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                                <input id="username" type="input" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
                             </div>
 
                 
                             <div>
                                 <label class="text-gray-700 dark:text-gray-200" for="animal">Type of Animal</label>
-                                <input id="password" type="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                                <input id="password" type="input" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
                             </div>
                 
                             <div>
                                 <label class="text-gray-700 dark:text-gray-200" for="breed">Breed</label>
-                                <input id="passwordConfirmation" type="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                                <input id="passwordConfirmation" type="input" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
                             </div>
                         </div>
                 
                         <div class="flex justify-end mt-6">
 
-                            <button class="text-white font-bold bg-purple-700 hover:bg-purple-800 py-2 px-4 rounded">
+                            <button type="submit" class="text-white font-bold bg-purple-700 hover:bg-purple-800 py-2 px-4 rounded">
                                 Submit</button>
                         </div>
                     </form>
@@ -131,6 +131,119 @@
             </form>
         </div>
     </section>
+
+    <!-- this form holds all the search results-->
+    <div id="animal-form" class="flex justify-center">
+        <div class="col-12 col-md-4 rounded-lg shadow-lg bg-white max-w-sm">
+          <div class="p-6">
+            <img id="img0">
+            <h6 id="name0"></h6>
+            <h6 id="type0"></h6>
+            <h6 id="breed0"></h6>
+            <h6 id="city0"></h6>
+            <h6 id="zip0"></h6>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 rounded-lg shadow-lg bg-white max-w-sm">
+          <div class="p-6">
+            <img id="img1">
+            <h6 id="name1"></h6>
+            <h6 id="type1"></h6>
+            <h6 id="breed1"></h6>
+            <h6 id="city1"></h6>
+            <h6 id="zip1"></h6>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 rounded-lg shadow-lg bg-white max-w-sm">
+          <div class="p-6">
+            <img id="img2">
+            <h6 id="name2"></h6>
+            <h6 id="type2"></h6>
+            <h6 id="breed2"></h6>
+            <h6 id="city2"></h6>
+            <h6 id="zip2"></h6>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 rounded-lg shadow-lg bg-white max-w-sm">
+          <div class="p-6">
+            <img id="img3">
+            <h6 id="name3"></h6>
+            <h6 id="type3"></h6>
+            <h6 id="breed3"></h6>
+            <h6 id="city3"></h6>
+            <h6 id="zip3"></h6>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 rounded-lg shadow-lg bg-white max-w-sm">
+          <div class="p-6">
+            <img id="img4">
+            <h6 id="name4"></h6>
+            <h6 id="type4"></h6>
+            <h6 id="breed4"></h6>
+            <h6 id="city4"></h6>
+            <h6 id="zip4"></h6>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 rounded-lg shadow-lg bg-white max-w-sm">
+          <div class="p-6">
+            <img id="img5">
+            <h6 id="name5"></h6>
+            <h6 id="type5"></h6>
+            <h6 id="breed5"></h6>
+            <h6 id="city5"></h6>
+            <h6 id="zip5"></h6>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 rounded-lg shadow-lg bg-white max-w-sm">
+          <div class="p-6">
+            <img id="img6">
+            <h6 id="name6"></h6>
+            <h6 id="type6"></h6>
+            <h6 id="breed6"></h6>
+            <h6 id="city6"></h6>
+            <h6 id="zip6"></h6>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 rounded-lg shadow-lg bg-white max-w-sm">
+          <div class="p-6">
+            <img id="img7">
+            <h6 id="name7"></h6>
+            <h6 id="type7"></h6>
+            <h6 id="breed7"></h6>
+            <h6 id="city7"></h6>
+            <h6 id="zip7"></h6>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 rounded-lg shadow-lg bg-white max-w-sm">
+          <div class="p-6">
+            <img id="img8">
+            <h6 id="name8"></h6>
+            <h6 id="type8"></h6>
+            <h6 id="breed8"></h6>
+            <h6 id="city8"></h6>
+            <h6 id="zip8"></h6>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 rounded-lg shadow-lg bg-white max-w-sm">
+          <div class="p-6">
+            <img id="img9">
+            <h6 id="name9"></h6>
+            <h6 id="type9"></h6>
+            <h6 id="breed9"></h6>
+            <h6 id="city9"></h6>
+            <h6 id="zip9"></h6>
+          </div>
+        </div>
+    </div>
     
     <footer class="text-center lg:text-left bg-gray-100 text-gray-600">
         <div class="flex justify-center items-center lg:justify-between p-6 border-b border-gray-300">
@@ -292,6 +405,7 @@
     <!--Slide Two: Cards of all the animals TO ADD TO DIFFERENT HTML-->
     
     <!--Slide Two: Cards of all the animals TO ADD TO DIFFERENT HTML-->
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
