@@ -164,8 +164,16 @@ function displayAnimal(animals)
     //load saved search in local storage
     function loadAnimals()
     {
-        var loadAnimals = (localStorage.getItem('animals'));
-        console.log((JSON.parse(loadAnimals)));
-        displayAnimal(JSON.parse(loadAnimals));
+        if(localStorage.getItem('animals')===null)
+        {
+            console.log("");
+        }
+        else
+        {
+            var loadAnimals = (localStorage.getItem('animals'));
+            console.log((JSON.parse(loadAnimals)));
+            displayAnimal(JSON.parse(loadAnimals));
+        }
+        
     }
     
