@@ -7,6 +7,9 @@ var submissionFormEl = document.querySelector("#search-form");
 var animalFormEl = document.querySelector("#animal-form");
 
 var listZip = [];
+var savedAnimals={animals: []};
+
+loadAnimals();
 
 submissionFormEl.addEventListener("submit",submitHandler);
 
@@ -46,13 +49,20 @@ function getToken(location)
         }).then(function(response){
             response.json().then(function(data){
                 console.log(data);
-                for(var i = 0;i<9;i++)
+                for(var i = 0;i<10;i++)
                 {
                     listZip[i] = data.animals[i].contact.address.postcode;
                     var zipEl = distanceCalculator(location, listZip[i],i);
                 }
+
+                for(var i=0;i<10;i++)
+                {
+                    savedAnimals.animals.push(data.animals[i]);
+                }
+
                 console.log(listZip);
-                displayAnimal(data,location);
+                saveAnimals(savedAnimals);
+                displayAnimal(data);
             });
         });
     });
@@ -63,7 +73,7 @@ function getToken(location)
 }
 
 //Function that displays the data retrueved
-function displayAnimal(animals,location)
+function displayAnimal(animals)
 {
 
     for(var i =0;i<10;i++)
@@ -140,4 +150,16 @@ function displayAnimal(animals,location)
 
 
     
+    //save search result
+    function saveAnimals(data)
+    {
+        localStorage.setItem('animals',JSON.stringify(data));
+    }
+
+    function loadAnimals()
+    {
+        var loadAnimals = (localStorage.getItem('animals'));
+        console.log((JSON.parse(loadAnimals)));
+        displayAnimal(JSON.parse(loadAnimals));
+    }
     
