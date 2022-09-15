@@ -49,13 +49,13 @@ function getToken(location)
         }).then(function(response){
             response.json().then(function(data){
                 console.log(data);
-                for(var i = 0;i<10;i++)
+                for(var i = 0;i<8;i++)
                 {
                     listZip[i] = data.animals[i].contact.address.postcode;
                     var zipEl = distanceCalculator(location, listZip[i],i);
                 }
 
-                for(var i=0;i<10;i++)
+                for(var i=0;i<8;i++)
                 {
                     savedAnimals.animals.push(data.animals[i]);
                 }
@@ -76,7 +76,7 @@ function getToken(location)
 function displayAnimal(animals)
 {
 
-    for(var i =0;i<10;i++)
+    for(var i =0;i<8;i++)
     {
        
         //work in progress, may need to come up with easier image solution
