@@ -155,7 +155,7 @@ function displayAnimal(animals)
     {
         localStorage.setItem('animals',JSON.stringify(data));
     }
-
+    //load saved search in local storage
     function loadAnimals()
     {
         var loadAnimals = (localStorage.getItem('animals'));
