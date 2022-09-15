@@ -89,6 +89,12 @@ function displayAnimal(animals)
             img.classList = "rounded-t-lg";
             img.setAttribute("src",imgUrl);
         }
+        else
+        {
+            var img = document.getElementById("img"+i);
+            img.classList = "rounded-t-lg";
+            img.setAttribute("src","./assets/photos/stock.jpg");
+        }
 
         //Displays Names
         var name = animals.animals[i].name;
@@ -145,7 +151,7 @@ function displayAnimal(animals)
     {
         var zip = document.getElementById("zip"+i);
         zip.classList="text-gray-900 text-xl font-medium mb-2";
-        zip.textContent = "Distance: "+ data.distance;
+        zip.textContent = "Distance: "+ data.distance+" Mi.";
     }
 
 
