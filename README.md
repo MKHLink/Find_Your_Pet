@@ -1,6 +1,6 @@
 # Find_Your_Pet
 # Purpose:
-•	A website users can utilize to find available pets in their surrounding area based on zip code
+A website users can utilize to find available pets in their surrounding area based on zip code
 
 # Built with:
 Javascript, Tailwind, Bootstrap, HTML
