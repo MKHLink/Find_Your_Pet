@@ -12,7 +12,7 @@ Petfinder API, Redline Zipcode API
 https://mkhlink.github.io/Find_Your_Pet/
 
 # Contributors:
-Brit Sovic, Mohammed Hasan, Jen Hano
+Brit Sovic, Linkhon Hasan, Jen Hano
 
 
 
